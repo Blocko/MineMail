@@ -38,7 +38,7 @@ public class MineMailPlayerListener extends PlayerListener{
 	    				event.getPlayer().getInventory().remove(event.getItem());
 	    			}
 	    			else {
-	        			event.getItem().setAmount(event.getItem().getAmount()-1);
+	    					event.getItem().setAmount(event.getItem().getAmount()-1);
 	    			}
 				}
 			}
