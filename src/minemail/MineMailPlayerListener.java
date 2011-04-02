@@ -26,6 +26,7 @@ public class MineMailPlayerListener extends PlayerListener{
 					config.setProperty(coords.getCoords(),event.getPlayer().getDisplayName().toLowerCase());
 					config.save();
 					event.getPlayer().sendMessage("This chest is now registered as your mailbox.");
+					event.setCancelled(true);
 				}
 			}
 			
