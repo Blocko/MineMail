@@ -34,12 +34,12 @@ public class MineMailPlayerListener extends PlayerListener{
 				String[] textLines = sign.getLines();
 				if(textLines[0].equals("[MineMail]")){
 					//Send the item to the mailbox of player textLines[1]
-	    			if(event.getItem().getAmount() == 1){
-	    				event.getPlayer().getInventory().remove(event.getItem());
-	    			}
-	    			else {
-	    					event.getItem().setAmount(event.getItem().getAmount()-1);
-	    			}
+	    				if(event.getItem().getAmount() == 1){
+	    					event.getPlayer().getInventory().remove(event.getItem());
+	    				}
+	    				else {
+	    						event.getItem().setAmount(event.getItem().getAmount()-1);
+	    				}
 				}
 			}
 		}
