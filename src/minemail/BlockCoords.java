@@ -14,6 +14,6 @@ public class BlockCoords {
 	}
 	
 	public String getCoords() {
-		return(blockx+"-"+blocky+"-"+blockz);
+		return(blockx+"_"+blocky+"_"+blockz);
 	}
 }
