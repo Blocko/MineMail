@@ -42,8 +42,12 @@ public class MineMailBlockListener extends BlockListener{
 			BlockCoords coords = new BlockCoords(event.getBlock());
 			Configuration config = plugin.getConfiguration();
 			config.load();
-			plugin.getServer().getPlayer(config.getString(coords.getCoords())).sendMessage("Your mailbox has been deregistered");
-			config.removeProperty(coords.getCoords());
+			try {
+				plugin.getServer().getPlayer(config.getString(coords.getCoords())).sendMessage("Your mailbox has been deregistered");
+				config.removeProperty(coords.getCoords());
+			} catch(Exception e) {
+				//Do nothing
+			}
 			config.save();
 		}
 	}
