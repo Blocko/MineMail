@@ -10,9 +10,9 @@ import org.bukkit.util.config.Configuration;
 
 public class MailChest {
 	
-	Block chestblock;
-	Configuration config;
-	BlockCoords coords;
+	private Block chestblock;
+	private Configuration config;
+	private BlockCoords coords;
 	
 	public MailChest(Block b, Configuration c) {
 		chestblock = b;
@@ -29,6 +29,10 @@ public class MailChest {
 	public String getOwnerName() {
 		String playername = config.getString(coords.getCoords());
 		return playername;
+	}
+	
+	public void deregister() {
+		config.removeProperty(coords.getCoords());
 	}
 
 }
