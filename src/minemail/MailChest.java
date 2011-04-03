@@ -1,11 +1,7 @@
 package minemail;
 
-import org.bukkit.Material;
 import org.bukkit.block.*;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerListener;
 import org.bukkit.util.config.Configuration;
 
 public class MailChest {
