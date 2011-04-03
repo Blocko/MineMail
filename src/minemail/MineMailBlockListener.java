@@ -21,18 +21,22 @@ public class MineMailBlockListener extends BlockListener{
 			Configuration config = plugin.getConfiguration();
 			config.load();
 			BlockCoords coords = new BlockCoords(event.getBlock());
-			String[] auth = config.getString(coords.getCoords()).split(",");
-			boolean damageAllowed = false;
-			for(String u : auth) {
-				if(event.getPlayer().getDisplayName().toLowerCase().equals(u.toLowerCase())){
-					damageAllowed = true;
+			try{
+				String[] auth = config.getString(coords.getCoords()).split(",");
+				boolean damageAllowed = false;
+				for(String u : auth) {
+					if(event.getPlayer().getDisplayName().toLowerCase().equals(u.toLowerCase())){
+						damageAllowed = true;
+					}
 				}
-			}
-		
-			if(!damageAllowed){
-				event.setCancelled(true);
-				event.getPlayer().sendMessage("This mailbox belongs to another player");
-			}
+				if(!damageAllowed){
+					event.setCancelled(true);
+					event.getPlayer().sendMessage("This mailbox belongs to another player");
+				}
+			} catch(Exception e) {
+				//do nothing
+			}	
+
 		}
 	}
 	
