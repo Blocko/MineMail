@@ -26,17 +26,17 @@ public class MineMailPlayerListener extends PlayerListener{
 						Configuration config = plugin.getConfiguration();
 						config.load();
 						//Seeing if the chest is already set by accessing it using the coords, if it doesn't return a value then we use the exception catching to register it
-						try {
-							String filecoords = config.getString(coords.getCoords()); //This will return an exception if it can't get the coordinate key
-							event.getPlayer().sendMessage("This chest is already registered.");
-							event.setCancelled(true);
-						} catch(Exception e) {
+						//try {
+							config.getString(coords.getCoords()); //This will return an exception if it can't get the coordinate key
+							//event.getPlayer().sendMessage("This chest is already registered.");
+							//event.setCancelled(true);
+						/*} catch(Exception e) {
 							//We'll register the chest through this
 							config.setProperty(coords.getCoords(),event.getPlayer().getDisplayName().toLowerCase());
 							config.save();
 							event.getPlayer().sendMessage("This chest is now registered as your mailbox.");
 							event.setCancelled(true);
-						}
+						}*/
 					}
 				} catch (Exception e) {
 					//do nothing
