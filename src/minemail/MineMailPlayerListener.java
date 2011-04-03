@@ -9,10 +9,11 @@ import org.bukkit.util.config.Configuration;
 
 public class MineMailPlayerListener extends PlayerListener{
 	MineMail plugin;
-	Configuration config = plugin.getConfiguration();
+	Configuration config;
 	
 	public MineMailPlayerListener(MineMail mineMail){
 		plugin = mineMail;
+		config = plugin.getConfiguration();
 	}
 	
 	@Override
