@@ -43,12 +43,11 @@ public class MineMailBlockListener extends BlockListener{
 	@Override
 	public void onBlockBreak(BlockBreakEvent event) {
 		if(event.getBlock().getType().equals(Material.CHEST)) {
-			BlockCoords coords = new BlockCoords(event.getBlock());
 			Configuration config = plugin.getConfiguration();
-			config.load();
+			MailChest chest = new MailChest(event.getBlock(),config);
 			try {
-				plugin.getServer().getPlayer(config.getString(coords.getCoords())).sendMessage("Your mailbox has been deregistered");
-				config.removeProperty(coords.getCoords());
+				plugin.getServer().getPlayer(chest.getOwnerName()).sendMessage("Your mailbox has been deregistered");
+				chest.deregister();
 			} catch(Exception e) {
 				//Do nothing
 			}

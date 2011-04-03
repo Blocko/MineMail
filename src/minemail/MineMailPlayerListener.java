@@ -9,17 +9,16 @@ import org.bukkit.util.config.Configuration;
 
 public class MineMailPlayerListener extends PlayerListener{
 	MineMail plugin;
-	Configuration config;
 	
 	public MineMailPlayerListener(MineMail mineMail){
 		plugin = mineMail;
-		config = plugin.getConfiguration();
 	}
 	
 	@Override
 	public void onPlayerInteract(PlayerInteractEvent event){
 		if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
 			if(event.getClickedBlock().getType().equals(Material.CHEST)){
+				Configuration config = plugin.getConfiguration();
 				MailChest chest = new MailChest(event.getClickedBlock(),config);
 				try {
 					if(event.getItem().getType().equals(Material.ARROW))
