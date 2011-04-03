@@ -26,7 +26,7 @@ public class MineMailPlayerListener extends PlayerListener{
 					config.load();
 					//Seeing if the chest is already set by accessing it using the coords, if it doesn't return a value then we use the exception catching to register it
 					String configcoords = config.getString(coords.getCoords()); //This will return an exception if it can't get the coordinate key
-					if(configcoords.equals("")) {
+					if(configcoords == null) {
 						config.setProperty(coords.getCoords(),event.getPlayer().getDisplayName().toLowerCase());
 						config.save();
 						event.getPlayer().sendMessage("This chest is now registered as your mailbox.");
