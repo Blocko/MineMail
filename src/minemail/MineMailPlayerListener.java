@@ -27,7 +27,7 @@ public class MineMailPlayerListener extends PlayerListener{
 						config.load();
 						//Seeing if the chest is already set by accessing it using the coords, if it doesn't return a value then we use the exception catching to register it
 						try {
-							config.getString(coords.getCoords()); //This will return an exception if it can't get the coordinate key
+							String filecoords = config.getString(coords.getCoords()); //This will return an exception if it can't get the coordinate key
 							event.getPlayer().sendMessage("This chest is already registered.");
 							event.setCancelled(true);
 						} catch(Exception e) {
