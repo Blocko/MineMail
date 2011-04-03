@@ -14,7 +14,7 @@ public class MailChest {
 		chestblock = b;
 		config = c;
 		config.load();
-		coords = new BlockCoords(b);
+		coords = new BlockCoords(chestblock);
 	}
 	
 	public void setOwner(Player player) {
